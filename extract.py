@@ -1,5 +1,4 @@
 import json
-import resources
 import pandas as pd
 
 # function to read .json file
@@ -13,8 +12,6 @@ def extract_json(file_path):
     Returns:
     returns variable consisting of the json data
     """
-    print("file_path ->", file_path)
-
     try:
         with open(file_path, 'r') as file:
             json_data = json.load(file)
@@ -38,12 +35,5 @@ def change_to_dataframe(json_data):
     return data_df
 
 if __name__ == "__main__":
-    print("Script is running as main")
-    file_path = resources.json_file_path
-    json_data = extract_json(file_path)
-    print("json length ->", len(json_data))
-    # print(json_data)
-    
-    data_df = change_to_dataframe(json_data)
-    print("data_df length ->", len(data_df))
-    print(data_df)
+    print("Running as extract.py")
+
