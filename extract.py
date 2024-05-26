@@ -36,4 +36,3 @@ def change_to_dataframe(json_data):
 
 if __name__ == "__main__":
     print("Running as extract.py")
-
