@@ -64,24 +64,13 @@ def assign_task(task_data_condition_checked, worker_data) -> pd.DataFrame:
     
     # method for apply to check condition and assign worker
     def worker_assignment(row, worker, assignment_counter):
-        if assignment_counter[0] == task_division_number:
-
-            # checker print statements
-            # print("after counter condition == 165")
-            # print("original_index ->", row["checker_index"])
-            # print("Assignee ->", "")
-            
+        if assignment_counter[0] == task_division_number:            
             row["Assignee"] = ""
             return row
             
         if row["Status"] == "" and row["Assignee"] == "":
             row["Assignee"] = worker
             assignment_counter[0] += 1
-            
-            # checker print statements
-            # print("counter ->", assignment_counter[0])
-            # print("original_index ->", row["checker_index"])
-            # print("Assignee ->", worker)
         
         return row
     
