@@ -73,15 +73,25 @@ def assign_task(task_data_condition_checked, worker_data):
             print("counter ->", assignment_counter[0])
             print("original_index ->", row["checker_index"])
             print("Assignee ->", worker)
-
+        
+        # if assignment_counter[0] == "remaining" and row["Status"] == "" and row["Assignee"] == "":
+            
+            
         return row
     
     assignment_counter = [0]
     for worker in worker_data:
         print(worker)
-        task_data_shuffled = task_data_shuffled.apply(worker_assignment, worker=worker, assignment_counter=assignment_counter, axis="columns")
+        task_data_shuffled = task_data_shuffled.apply(
+            worker_assignment, worker=worker, assignment_counter=assignment_counter, axis="columns"
+        )
         assignment_counter = [0]
-    
+
+    task_data_shuffled = task_data_shuffled.apply(
+        worker_assignment, worker=worker_data[len(worker_data)-1],
+        assignment_counter=assignment_counter, axis="columns"
+    )
+
     task_data_shuffled = task_data_shuffled.sort_values(by="original_index").reset_index(drop=True)
     task_data_shuffled.drop(columns=["original_index", "checker_index"], inplace=True)
     print(task_data_shuffled)
