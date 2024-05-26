@@ -1,10 +1,8 @@
-source_folder_path: str = "/Users/subritt/Desktop/enablement_engineer_assessment/EE_Assessment/source_data"
+source_folder_path: str = "<ADD_YOUR_FOLDER_PATH_FOR_SOURCE_DATA>/source_data"
 worker_data: list = [
-    "John Smith",
-    "Mabel Lee",
-    "Jan Novák",
-    "Navn Navnesen",
-    "Zhang San"
+    "John Doe",
+    "Jane Doe",
+    "<YOUR_WORKER_NAME>"
 ]
-folder_path: str = "/Users/subritt/Desktop/enablement_engineer_assessment/EE_Assessment/csv_files"
-master_csv_file_name = "master"
+folder_path: str = "<ADD_YOUR_FOLDER_PATH_FOR_CSV_DUMP>/csv_files"
+master_csv_file_name = "<YOUR_DESIRED_MASTER_CSV_FILE_NAME>"

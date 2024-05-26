@@ -96,6 +96,9 @@ if __name__ == "__main__":
     for detail in folder_detail:
         file_name = detail[0]
         file_path = detail[1]
+        print("")
+        print(f"---> Working for {file_name} <---")
+        print("")
 
         # data extraction
         task_data = extraction(file_path)
