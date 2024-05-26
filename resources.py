@@ -7,3 +7,4 @@ worker_data: list = [
     "Zhang San"
 ]
 folder_path: str = "/Users/subritt/Desktop/enablement_engineer_assessment/EE_Assessment/csv_files"
+master_csv_file_name = "master"

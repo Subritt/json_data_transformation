@@ -7,15 +7,14 @@ def extract_json(file_path) -> json:
     Read a .json file.
 
     Parameters:
-    file_path (string): File location where the json file is
+    file_path (str): File location where the json file is
 
     Returns:
     returns variable consisting of the json data
     """
+    print("extract.py -> extract_json()")
     with open(file_path, 'r') as file:
-        print("inside Open")
         json_data = json.load(file)
-    # print(json_data)
     
     return json_data
 
@@ -29,5 +28,6 @@ def change_to_dataframe(json_data) -> pd.DataFrame:
     Returns:
     returns pandas DataFrame
     """
+    print("extract.py -> change_to_dataframe()")
     data_df = pd.DataFrame(json_data)
     return data_df
