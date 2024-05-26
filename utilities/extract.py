@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # function to read .json file
-def extract_json(file_path):
+def extract_json(file_path) -> json:
     """
     Read a .json file.
 
@@ -12,16 +12,14 @@ def extract_json(file_path):
     Returns:
     returns variable consisting of the json data
     """
-    try:
-        with open(file_path, 'r') as file:
-            json_data = json.load(file)
-        # print(json_data)
-    except Exception as e:
-        print(f"Exception found: {e}")
+    with open(file_path, 'r') as file:
+        print("inside Open")
+        json_data = json.load(file)
+    # print(json_data)
     
     return json_data
 
-def change_to_dataframe(json_data):
+def change_to_dataframe(json_data) -> pd.DataFrame:
     """
     Change Json file into a Pandas DataFrame
 
@@ -33,6 +31,3 @@ def change_to_dataframe(json_data):
     """
     data_df = pd.DataFrame(json_data)
     return data_df
-
-if __name__ == "__main__":
-    print("Running as extract.py")

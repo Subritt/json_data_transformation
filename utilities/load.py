@@ -1,17 +1,18 @@
 import pandas as pd
 import os
 
-def create_csv(task_data, worker_data, folder_path, source_file_name):
+def create_csv(task_data, worker_data, folder_path, source_file_name, master: bool) -> None:
 
-    if worker_data == "master":
+    if master:
         # check folder availability
         final_destination_folder = folder_check(folder_path, source_file_name)
 
         # create csv
-        file_name = f"{worker_data}.csv"
+        file_name = f"master.csv"
         task_data.to_csv(os.path.join(final_destination_folder, file_name), index=False)
         print(f"{worker_data}.csv created!")
-    else:
+
+    if worker_data:
         for worker in worker_data:
             print("creating CSV for ->", worker)
             # print(task_data)
@@ -35,7 +36,7 @@ def create_csv(task_data, worker_data, folder_path, source_file_name):
                 print("Exception: ", e)
 
 # check if folder exists, else create one
-def folder_check(folder_path, source_file_name):
+def folder_check(folder_path, source_file_name) -> None:
     final_destination_folder = f"{folder_path}/{source_file_name}"
 
     if not os.path.exists(folder_path):
@@ -47,8 +48,3 @@ def folder_check(folder_path, source_file_name):
             os.makedirs(final_destination_folder)
             return final_destination_folder
         return final_destination_folder
-        
-
-
-if __name__ == "__main__":
-    print("Running as load.py")

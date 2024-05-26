@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 
-def condition_check(task_data):
+def condition_check(task_data) -> pd.DataFrame:
     """
     Check 'Type' and 'Series' as
     Type is one of: 4800a, 501c, or 325d
@@ -40,7 +40,7 @@ def condition_check(task_data):
 3. based on the condition assign worker
 4. re-arrange the rows back to it's original order
 """
-def assign_task(task_data_condition_checked, worker_data):
+def assign_task(task_data_condition_checked, worker_data) -> pd.DataFrame:
     print("inside assign_task method")
     task_data_condition_checked["original_index"] = task_data_condition_checked.index
     # shuffled rows
@@ -75,8 +75,6 @@ def assign_task(task_data_condition_checked, worker_data):
             print("Assignee ->", worker)
         
         # if assignment_counter[0] == "remaining" and row["Status"] == "" and row["Assignee"] == "":
-            
-            
         return row
     
     assignment_counter = [0]
@@ -97,6 +95,3 @@ def assign_task(task_data_condition_checked, worker_data):
     print(task_data_shuffled)
 
     return task_data_shuffled
-
-if __name__ == "__main__":
-    print("Running as transformation.py")
