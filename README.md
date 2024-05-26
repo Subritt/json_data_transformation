@@ -6,7 +6,7 @@
 5. Create a master CSV file consisting of initial plus added columns. <br />
 6. Create individual worker CSV files only consisting of initial columns.
 
-### To be changes:
+### To be changed:
 1. Update the source_data folder with your desired JSON files. <br />
 2. Update `resources.py`: <br />
     2.1 `source_folder_path` variable with the path for your `source_data` folder. <br />
