@@ -14,6 +14,17 @@
     2.3 `folder_path` with the folder path for your CSV dump primary folder. <br />
     2.4 `master_csv_file_name` with the name that you want to give to the master CSV file. <br />
 
+### Environment and package setup
+1. Create a python virtual environment or choose one that you want. <br />
+    `python -m venv <virtual_environment_name>` <br />
+2. Activate the virtual environment <br />
+    In terminal go to the folder where the virtual environment was created then run the following command <br />
+    `source <virtual_environment_name>/bin/activate` <br />
+    replace `<virtual_environment_name>` with your environment name. <br />
+3. Run the following command in your terminal to install the package. <br />
+    `pip install -r requirement.txt` <br />
+    > If this does not work, add version to all the packages name like `pandas==1.1.3` or manually install the packages from terminal example: `pip install pandas`
+
 ### To Run
 After you have made all the necessary changes. <br />
 Run `main.py` file and the program will go perform all the above mentioned steps.
