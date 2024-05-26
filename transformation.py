@@ -1,7 +1,5 @@
 import pandas as pd
 import re
-import extract
-import resources
 
 def condition_check(task_data):
     """

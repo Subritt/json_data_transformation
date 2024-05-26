@@ -34,6 +34,11 @@ def transform(task_data, worker_data):
 
     return master_data
 
+# create CSV files
+def load_data(master_data, worker_data, folder_path):
+    print("inside load method")
+    load.create_csv(master_data, worker_data, folder_path)
+
 if __name__ == "__main__":
     print("Running as driver.py")
 
@@ -44,3 +49,8 @@ if __name__ == "__main__":
     worker_data = resources.worker_data
     master_data = transform(task_data, worker_data)
     print(master_data)
+
+    # load: create respective CSV file
+    folder_path = resources.folder_path
+    load_data(master_data, "master", folder_path)
+    load_data(master_data, worker_data, folder_path)
