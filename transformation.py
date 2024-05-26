@@ -3,23 +3,6 @@ import re
 import extract
 import resources
 
-# extract data calling extract module
-def data_extractor():
-    # file path
-    file_path = resources.json_file_path
-    print("file_path ->", file_path)
-
-    # json data extraction
-    json_data = extract.extract_json(file_path)
-    print("json length ->", len(json_data))
-    # print(json_data)
-    
-    # convert json data to Pandas DataFrame
-    data_df = extract.change_to_dataframe(json_data)
-    print("data_df length ->", len(data_df))
-    # print(data_df)
-    return data_df
-
 def condition_check(task_data):
     """
     Check 'Type' and 'Series' as
@@ -105,20 +88,7 @@ def assign_task(task_data_condition_checked, worker_data):
     task_data_shuffled.drop(columns=["original_index", "checker_index"], inplace=True)
     print(task_data_shuffled)
 
+    return task_data_shuffled
 
 if __name__ == "__main__":
     print("Running as transformation.py")
-    
-    # data extractor
-    task_data = data_extractor()
-
-    # passing task_data to further check the conditions
-    task_data_condition_checked = condition_check(task_data)
-    print(task_data_condition_checked)
-
-    # filtered_task_data = task_data_condition_checked.loc[~task_data_condition_checked["Status"].isin(["Incorrect Type", "Incorrect Series"])].reset_index()
-    # print(filtered_task_data)
-    # print(filtered_task_data.sample()) # sample test
-
-    worker_data = resources.worker_data
-    assign_task(task_data_condition_checked, worker_data)
