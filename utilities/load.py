@@ -22,7 +22,7 @@ def create_csv(task_data, worker_data, folder_path, source_file_name, master: bo
                     task_data["Assignee"] == worker
                 ].copy()
                 # drop Assignee column
-                worker_df.drop(columns=["Assignee"], axis=1, inplace=True)
+                worker_df.drop(columns=["Assignee", "Status"], axis=1, inplace=True)
 
                 # check folder availability
                 final_destination_folder = folder_check(folder_path, source_file_name)
